@@ -15,3 +15,4 @@ pyqt5
 
 
 ```
+![右键菜单功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/btn.gif)
