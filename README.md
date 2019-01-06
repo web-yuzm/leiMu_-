@@ -18,15 +18,12 @@ cmd执行python main.py 即可
 ![移动功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/move.gif)
 </br>
 ## 移动功能
-</br>
 ![右键菜单功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/btn.gif)
 </br>
 ## 右键菜单功能
-</br>
 ![简单交互](https://github.com/frankcreating/leiMu_-/blob/master/gif/focus.gif)
 </br>
 ## 简单交互
-</br>
 ![我的目标](https://github.com/frankcreating/leiMu_-/blob/master/gif/test.gif)
 ## 我的目标
 </br>
