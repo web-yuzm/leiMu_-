@@ -16,9 +16,9 @@ cmd执行python main.py 即可
 
 ```
 ![移动功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/move.gif)
-<br>
+</br/>
 ## 移动功能
-<br/>
+</br/>
 ![右键菜单功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/btn.gif)
 </br>
 ## 右键菜单功能
