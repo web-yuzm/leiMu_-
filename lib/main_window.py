@@ -48,7 +48,7 @@ class main_window(Ui_mywindow):
         self.pic()
         self.window.show()
     def pic(self):#看板娘图片
-        pix = QPixmap('icon/123.png')
+        pix = QPixmap('icon/action1.png')
         scale = 1#暂时没用
         self.image_label.setPixmap(pix)
 

@@ -2,15 +2,13 @@ import time
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QPixmap
-
 from PyQt5.QtWidgets import QLabel, QMenu, QAction
 
 
 class MyImageLabel(QLabel):
-#图片label
+    #图片label
     def __init__(self,centralwidget,dialog=0):
         #传入窗体
-        # self.centralwidget = QtWidgets.QWidget(mywindow)
         super().__init__(centralwidget)
         self.stone = 1
         self.dialog=dialog
@@ -37,7 +35,7 @@ class MyImageLabel(QLabel):
         self.setPixmap(pix)
         self.myTimer(self.normal)
     def normal(self):
-        pix = QPixmap('icon/123.png')
+        pix = QPixmap('icon/action1.png')
         self.setPixmap(pix)
     def rightMenuShow(self, point):
             self.popMenu = QMenu()

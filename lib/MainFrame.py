@@ -3,8 +3,7 @@ import json
 from PyQt5 import Qt
 from PyQt5.QtGui import QCursor
 
-from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon
-
+from PyQt5.QtWidgets import QMainWindow
 
 class MyWindow(QMainWindow):
     def __init__(self):
