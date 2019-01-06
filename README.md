@@ -16,10 +16,10 @@ pyqt5
 
 ```
 ![移动功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/move.gif)
-移动功能
+1.移动功能
 ![右键菜单功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/btn.gif)
-右键菜单功能
+2.右键菜单功能
 ![简单交互](https://github.com/frankcreating/leiMu_-/blob/master/gif/focus.gif)
-简单交互
+3.简单交互
 ![我的目标](https://github.com/frankcreating/leiMu_-/blob/master/gif/test.gif)
-我的目标
+4.我的目标
