@@ -17,8 +17,9 @@ cmd执行python main.py 即可
 1. 自动记录上一次的位置，下次启动出现在那里
 2. 对话框优化
 3. 雷姆的交互‘动画’（姑且算是动画吧，心虚）
-
-
+2019年1月11日
+4.拖入python文件直接执行的功能，模拟了cmd的功能，总之拖进去就会执行就对了。
+5.优化了对话框的一些交互，变化了，一段时间会退回到等待指令状态。
 ```
 ## 移动功能
 ![移动功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/move.gif)
@@ -29,6 +30,18 @@ cmd执行python main.py 即可
 ## 简单交互
 ![简单交互](https://github.com/frankcreating/leiMu_-/blob/master/gif/focus.gif)
 </br>
+
+
+
+
+
+
+
+
+
+
+
+
 ## 我的目标
 ![我的目标](https://github.com/frankcreating/leiMu_-/blob/master/gif/test.gif)
 

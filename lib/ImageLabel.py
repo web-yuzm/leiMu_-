@@ -1,7 +1,7 @@
 import time
-from PyQt5 import QtGui, QtCore
+from PyQt5 import QtGui, QtCore, Qt
 from PyQt5.QtCore import QTimer
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QFontMetrics
 from PyQt5.QtWidgets import QLabel, QMenu, QAction
 
 
@@ -17,19 +17,27 @@ class MyImageLabel(QLabel):
         self.customContextMenuRequested.connect(self.rightMenuShow)
         self.setFocusPolicy(QtCore.Qt.ClickFocus)
 
+        self.setAcceptDrops(True)
     def focusInEvent(self, QFocusEvent):
-        try:
-            self.shy()
-        except Exception as e:
-            print(e)
+        print('focus')
 
-    def say(self,content):
+    def say(self,content,time=2000):
+        self.dialog.setGeometry(QtCore.QRect(80, 0, 230, 350))#拉长对话框
+        # self.dialog.setup()
         if self.dialog:
             self.dialog.setText(content)
-    def myTimer(self,function):
+        try:
+            self.myTimer(self.back,time)
+        except Exception as e:
+            print(e)
+    def back(self):
+        self.dialog.setGeometry(QtCore.QRect(30, 190, 100, 40))#还原对话框
+        self.dialog.setText('等待指令')
+
+    def myTimer(self,function,time=2000):
         self.t = QTimer()  # 初始化一个定时器
         self.t.timeout.connect(function)  # 计时结束调用operate()方法
-        self.t.start(2000)  # 设置计时间隔并启动
+        self.t.start(time)  # 设置计时间隔并启动
     def shy(self):
         pix = QPixmap('icon/action2.png')
         self.setPixmap(pix)
@@ -59,3 +67,48 @@ class MyImageLabel(QLabel):
 
         self.popMenu.move( pos)
         self.popMenu.show()
+    def dragEnterEvent(self, event):
+        if event.mimeData().hasUrls:
+            event.accept()
+        else:
+            event.ignore()
+
+    def dragMoveEvent(self, event):
+        if event.mimeData().hasUrls:
+            try:
+                event.setDropAction(Qt.Qt.CopyAction)
+            except Exception as e:
+                print(e)
+            event.accept()
+        else:
+            event.ignore()
+
+    def dropEvent(self, event):
+        try:
+            if event.mimeData().hasUrls:
+                event.setDropAction(Qt.Qt.CopyAction)
+                event.accept()
+                links = []
+                for url in event.mimeData().urls():
+                    path=str(url.toLocalFile())
+                    data={'filename':path.split(r'/')[-1],'path':path}
+                    self.file_type_check(data)
+                print(links)
+            else:
+                event.ignore()
+        except Exception as e:
+            print(e)
+    def file_type_check(self,data):
+        if data['filename'].split('.')[-1] == 'py':
+            from plug.run_python.lib.run_py_script import run_that
+            try:
+                print(data['path'].replace('\\', '/'))
+                res = run_that('python '+data['path'].replace('\\', '/'))  # 正在施工
+
+                self.say(res,8000)
+            except:
+                self.say('脚本里有错误哦')
+        else:
+            from plug.run_python.lib.run_py_script import run_that
+            res = run_that(data['path'].replace('\\', '/'))  # 正在施工
+            # links.append(data)
