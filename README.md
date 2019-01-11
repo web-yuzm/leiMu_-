@@ -12,7 +12,10 @@ python3
 pyqt5
 
 > 使用步骤：
-cmd执行python main.py 即可
+在cmd执行python main.py 即可
+
+>注意事项
+cmd模拟功能需要系统环境支持python
 ```
 1. 自动记录上一次的位置，下次启动出现在那里
 2. 对话框优化
@@ -30,7 +33,8 @@ cmd执行python main.py 即可
 ## 简单交互
 ![简单交互](https://github.com/frankcreating/leiMu_-/blob/master/gif/focus.gif)
 </br>
-
+## 执行python文件功能
+![执行python文件功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/runpython.gif)
 
 
 
