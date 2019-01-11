@@ -34,7 +34,7 @@ cmd模拟功能需要系统环境支持python
 ![简单交互](https://github.com/frankcreating/leiMu_-/blob/master/gif/focus.gif)
 </br>
 ## 执行python文件功能
-![执行python文件功能](https://github.com/frankcreating/leiMu_-/blob/master/gif/runpython.gif)
+![执行python文件功能](https://raw.githubusercontent.com/frankcreating/leiMu_-/master/gif/runpy.gif)
 
 
 
