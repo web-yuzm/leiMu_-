@@ -2,11 +2,11 @@ import time
 from PyQt5 import QtGui, QtCore, Qt
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QPixmap, QFontMetrics
-from PyQt5.QtWidgets import QLabel, QMenu, QAction
+from PyQt5.QtWidgets import QLabel, QMenu, QAction, QApplication
 
 
 class MyImageLabel(QLabel):
-    #图片label
+    #图片加载控件
     def __init__(self,centralwidget,dialog=0):
         #传入窗体
         super().__init__(centralwidget)
@@ -49,16 +49,18 @@ class MyImageLabel(QLabel):
             self.popMenu = QMenu()
             tj=QAction(u'添加', self)
             sc=QAction(u'删除', self)
-            xg = QAction(u'修改', self)
+            xg = QAction(u'退出', self)
             self.popMenu.addAction(tj)
             self.popMenu.addAction(sc)
             self.popMenu.addAction(xg)
             tj.triggered.connect(lambda :self.test('走开'))
             sc.triggered.connect(lambda :self.test('滚'))
-            xg.triggered.connect(lambda :self.test('一边去'))
+            xg.triggered.connect(lambda :self.shut())
             self.showContextMenu(QtGui.QCursor.pos())
     def test(self,content):
         self.say(content)
+    def shut(self):
+        QApplication.quit()
     def showContextMenu(self, pos):
         '''''
         右键点击时调用的函数

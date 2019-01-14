@@ -1,8 +1,10 @@
+#coding:utf-8
 import time
 from PyQt5 import Qt
 
 from PyQt5.QtWidgets import QLabel, QFrame,QTextEdit
 class dialog_label(QTextEdit):
+    #对话栏
     def __init__(self,centralwidget):
         super().__init__(centralwidget)
         self.setup()

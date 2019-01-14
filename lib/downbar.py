@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QDialog, QSystemTrayIcon, QMenu ,QAction,QApplicatio
 from PyQt5.QtGui import QIcon
 import sys
 class main(QDialog):
+    #托盘
     def __init__(self):
         super().__init__()
         self.loadMenu()

@@ -5,19 +5,15 @@ from PyQt5.QtGui import QCursor
 
 from PyQt5.QtWidgets import QMainWindow
 
-class MyWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+from lib.float_window import FloatWindow
+
+
+class MyWindow(FloatWindow):
+    #
+    def __init__(self,name):
+        super().__init__(name)
         self.tray=0
 
-    def closeEvent(self, *args, **kwargs):
-        if self.tray:
-            try:
-                self.tray.deleteLater()
-            except Exception as e:
-                print(e)
-            print("delete")
-        # self.
     def mousePressEvent(self, event):
         if event.button() == Qt.Qt.LeftButton:
             self.m_flag = True
@@ -34,10 +30,3 @@ class MyWindow(QMainWindow):
         self.m_flag = False
         self.setCursor(QCursor(Qt.Qt.ArrowCursor))
         self.save_location()
-    def save_location(self):
-        with open('window_location.txt', 'w') as f:
-            data = {'x': self.x(), 'y': self.y()}
-            print(data)
-            f.write(json.dumps(data))
-
-
