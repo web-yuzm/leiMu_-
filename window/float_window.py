@@ -4,13 +4,17 @@ import os
 from PyQt5 import Qt
 
 from PyQt5.QtGui import QCursor
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QApplication
 
 
 class FloatWindow(QMainWindow):
     def __init__(self,name=''):
         super().__init__()
         self.name=name
+        try:
+            self.load_location()
+        except:
+            self.save_location()
     def closeEvent(self, *args, **kwargs):
         self.save_location()
 
@@ -24,7 +28,10 @@ class FloatWindow(QMainWindow):
             txt = f.read()
             print(txt)
             j = json.loads(txt)
-            self.move(j['x'],j['y'])
+            if j['x']>QApplication.desktop().width():
+                self.move(int(QApplication.desktop().screenGeometry(0).width())-100,j['y'])
+            else:
+                self.move(j['x'],j['y'])
     def show(self):
         super().show()
         try:

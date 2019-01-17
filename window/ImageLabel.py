@@ -16,23 +16,36 @@ class MyImageLabel(QLabel):
         self.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
         self.customContextMenuRequested.connect(self.rightMenuShow)
         self.setFocusPolicy(QtCore.Qt.ClickFocus)
+        self.ear=''
+
 
         self.setAcceptDrops(True)
-    def focusInEvent(self, QFocusEvent):
-        print('focus')
+    def mouseDoubleClickEvent(self, *args, **kwargs):
+
+        if self.ear!='':
+            self.ear.show()
+
 
     def say(self,content,time=2000):
-        self.dialog.setGeometry(QtCore.QRect(80, 0, 230, 350))#拉长对话框
-        # self.dialog.setup()
         if self.dialog:
-            self.dialog.setText(content)
+            self.dialog.show()
+            index=0
+            temp=''
+            for i in content:
+                if index>5:
+                    i+='\n'
+                    index=0
+                temp+=i
+            self.dialog.setText(temp)
         try:
             self.myTimer(self.back,time)
         except Exception as e:
             print(e)
     def back(self):
-        self.dialog.setGeometry(QtCore.QRect(30, 190, 100, 40))#还原对话框
-        self.dialog.setText('等待指令')
+        self.dialog.hide()
+        # self.dialog.setGeometry(QtCore.QRect(30, 190, 100, 40))#还原对话框
+        # self.dialog.setText('等待指令')
+
 
     def myTimer(self,function,time=2000):
         self.t = QTimer()  # 初始化一个定时器

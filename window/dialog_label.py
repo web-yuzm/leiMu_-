@@ -17,7 +17,7 @@ class dialog_label(QTextEdit):
         # self.setWordWrap(1)
         self.setStyleSheet('border-width: 1px;padding-top:5px;border-style: solid;border-color: rgb(255, 255,255);'+
                            'background-color: rgb(100,149,237);color:rgb(255,255,255);'+
-                            'border-radius:15px; border-left:20px;padding-left:20px;'
+                            'border-radius:10px; border-left:20px;padding-left:20px;'
 
                            )
         print('dialog_label')

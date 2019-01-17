@@ -1,11 +1,7 @@
-import json
-
 from PyQt5 import Qt
 from PyQt5.QtGui import QCursor
 
-from PyQt5.QtWidgets import QMainWindow
-
-from lib.float_window import FloatWindow
+from window.float_window import FloatWindow
 
 
 class MyWindow(FloatWindow):
