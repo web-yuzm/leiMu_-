@@ -5,7 +5,7 @@ from PyQt5.QtGui import QPixmap, QFontMetrics
 from PyQt5.QtWidgets import QLabel, QMenu, QAction, QApplication
 
 # from lib.MyThread import init_server, wake_server
-from plug.chatroom.lib.server.server import Server
+#from plug.chatroom.lib.server.server import Server
 
 
 class MyImageLabel(QLabel):
