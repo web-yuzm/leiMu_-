@@ -3,11 +3,10 @@ import json
 
 from PyQt5 import Qt, QtCore, QtWidgets
 from PyQt5.QtGui import QPixmap
-from lib.MainFrame import MyWindow
-from lib.dialog_label import dialog_label
-
 from ui.Ui_mywindow import Ui_mywindow
 from window.ImageLabel import MyImageLabel
+from window.MainFrame import MyWindow
+from window.dialog_label import dialog_label
 from window.float_window import FloatWindow
 
 

@@ -4,6 +4,9 @@ from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QPixmap, QFontMetrics
 from PyQt5.QtWidgets import QLabel, QMenu, QAction, QApplication
 
+# from lib.MyThread import init_server, wake_server
+from plug.chatroom.lib.server.server import Server
+
 
 class MyImageLabel(QLabel):
     #图片加载控件
@@ -27,6 +30,7 @@ class MyImageLabel(QLabel):
 
 
     def say(self,content,time=2000):
+        print(content)
         if self.dialog:
             self.dialog.show()
             index=0
@@ -38,7 +42,7 @@ class MyImageLabel(QLabel):
                 temp+=i
             self.dialog.setText(temp)
         try:
-            self.myTimer(self.back,time)
+            self.myTimer(self.back,4000)
         except Exception as e:
             print(e)
     def back(self):
@@ -60,18 +64,23 @@ class MyImageLabel(QLabel):
         self.setPixmap(pix)
     def rightMenuShow(self, point):
             self.popMenu = QMenu()
-            tj=QAction(u'添加', self)
+            tj=QAction(u'聊天功能', self)
             sc=QAction(u'删除', self)
             xg = QAction(u'退出', self)
             self.popMenu.addAction(tj)
             self.popMenu.addAction(sc)
             self.popMenu.addAction(xg)
-            tj.triggered.connect(lambda :self.test('走开'))
+            tj.triggered.connect(lambda :self.chat_server())
             sc.triggered.connect(lambda :self.test('滚'))
             xg.triggered.connect(lambda :self.shut())
             self.showContextMenu(QtGui.QCursor.pos())
     def test(self,content):
         self.say(content)
+    def chat_server(self):
+        server = Server()
+        server.start()
+        server.trigger.connect(lambda :self.say('hello'))
+
     def shut(self):
         QApplication.quit()
     def showContextMenu(self, pos):
